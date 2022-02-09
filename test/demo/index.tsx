@@ -1,11 +1,11 @@
-import { createElement } from '../../src'
+import { createElement } from '../../dist'
 
-const FooChild = (): HTMLElement => <div>Hello FooBar</div>
+const FooChild = (): HTMLElement => <div>FooChild</div>
 
 const Foo = (): HTMLElement => {
     return (
 	    <div>
-            Hello Foo
+            Foo
             {FooChild()}
         </div>
     )

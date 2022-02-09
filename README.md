@@ -11,19 +11,23 @@ Install using your package manager:
 
 ## Usage
 
-### Using TypeScript:
-
-Add these options in your `tsconfig`
+With TypeScript, add these options in your `tsconfig`
 
 ```json
     "jsx":"preserve",
     "jsxFactory": "createElement",
 ```
 
-Import the `createElement` function wherever you're using JSX:
+Import the `createElement` function at the top of every file you're using JSX:
 ```javascript
-import { createElement } from 'transform'
+import { createElement } from 'transform-jsx'
 ```
+
+## Credits
+
+- [JSX Without React](https://blog.stchur.com/jsx-without-react/)
+- [WTF is JSX](https://web.archive.org/web/20170918095722/https://jasonformat.com/wtf-is-jsx/)
+- [How to Use JSX Without React](https://betterprogramming.pub/how-to-use-jsx-without-react-21d23346e5dc)
 
 ## License
 
