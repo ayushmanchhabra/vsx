@@ -1,6 +1,6 @@
 {
   "name": "transform-jsx",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Transform JSX into vanilla JavaScript",
   "author": "Ayushman Chhabra <ayushmxn@outlook.com>",
   "license": "MIT",
