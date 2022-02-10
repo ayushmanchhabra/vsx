@@ -23,6 +23,12 @@ Import the `createElement` function at the top of every file you're using JSX:
 import { createElement } from 'transform-jsx'
 ```
 
+## API
+
+`createElement(tag: string, props: { [key: string]: any } | null, ...children: Array<null | string | Node>): Node`
+
+It is applied to every HTML or JSX element via the runtime of your choice.
+
 ## Credits
 
 - [JSX Without React](https://blog.stchur.com/jsx-without-react/)
