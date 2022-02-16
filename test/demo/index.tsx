@@ -1,4 +1,4 @@
-import JSX from '../../src'
+import { createElement } from '../../src'
 
 const FooChild = (): HTMLElement => <div>Child</div>
 

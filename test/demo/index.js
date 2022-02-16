@@ -28,16 +28,10 @@
   };
   var createElement_default = createElement;
 
-  // src/index.ts
-  var JSX = {
-    createElement: createElement_default
-  };
-  var src_default = JSX;
-
   // test/demo/index.tsx
-  var FooChild = () => /* @__PURE__ */ src_default.createElement("div", null, "Child");
+  var FooChild = () => /* @__PURE__ */ createElement_default("div", null, "Child");
   var Foo = () => {
-    return /* @__PURE__ */ src_default.createElement("div", null, "Parent", /* @__PURE__ */ src_default.createElement(FooChild, null));
+    return /* @__PURE__ */ createElement_default("div", null, "Parent", /* @__PURE__ */ createElement_default(FooChild, null));
   };
   document.getElementById("root").appendChild(Foo());
 })();
