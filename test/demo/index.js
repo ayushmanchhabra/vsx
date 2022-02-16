@@ -9,13 +9,6 @@
       Object.entries(props).forEach(([key, value]) => {
         if (key.startsWith("on") && key.toLowerCase() in window) {
           element.addEventListener(key.toLowerCase().substring(2), value);
-        } else if (key === "style") {
-          let style = "";
-          for (const obj in value) {
-            style += `${obj.replace(/([A-Z])/g, (g) => `-${g[0].toLowerCase()}`)}: ${value[obj]};
-`;
-          }
-          element.setAttribute(key, style);
         } else {
           element.setAttribute(key, value.toString());
         }
@@ -36,17 +29,9 @@
   var createElement_default = createElement;
 
   // test/demo/index.tsx
-  var Button = () => {
-    return /* @__PURE__ */ createElement_default("button", {
-      onClick: () => alert("Clicked!"),
-      style: {
-        height: "50px",
-        width: "200px",
-        backgroundColor: "white",
-        color: "black",
-        fontSize: "24px"
-      }
-    }, "Click me!");
+  var FooChild = () => /* @__PURE__ */ createElement_default("div", null, "Child");
+  var Foo = () => {
+    return /* @__PURE__ */ createElement_default("div", null, "Parent", /* @__PURE__ */ createElement_default(FooChild, null));
   };
-  document.getElementById("root").appendChild(Button());
+  document.getElementById("root").appendChild(Foo());
 })();
