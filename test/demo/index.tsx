@@ -1,12 +1,12 @@
-import { createElement } from '../../dist'
+import JSX from '../../src'
 
-const FooChild = (): HTMLElement => <div>FooChild</div>
+const FooChild = (): HTMLElement => <div>Child</div>
 
 const Foo = (): HTMLElement => {
     return (
 	    <div>
-            Foo
-            {FooChild()}
+            Parent
+            <FooChild/>
         </div>
     )
 }

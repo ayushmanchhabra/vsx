@@ -3,7 +3,7 @@
         "target": "ES6",
         "lib": ["DOM", "ES2017"],
         "jsx":"preserve",
-        "jsxFactory": "createElement",
+        "jsxFactory": "JSX.createElement",
         "moduleResolution": "node",
         "isolatedModules": true,
         "strictNullChecks": true,

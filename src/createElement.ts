@@ -1,4 +1,8 @@
-const createElement = (tag: string, props: null | { [key: string]: any }, ...children: Array<null | string | Node>): Node => {
+const createElement = (tag: string | (() => Node), props: null | { [key: string]: any }, ...children: Array<string | Node>): Node => {
+  if (typeof tag !== 'string') {
+    return tag()
+  }
+
   const element = document.createElement(tag)
   if (props !== null) {
     Object.entries(props).forEach(([key, value]: [string, any]) => {

@@ -25,9 +25,9 @@ import { createElement } from 'transform-jsx'
 
 ## API
 
-`createElement(tag: string, props: { [key: string]: any } | null, ...children: Array<null | string | Node>): Node`
+`createElement(tag: string | (() => Node), props: { [key: string]: any } | null, ...children: Array<null | string | Node>): Node`
 
-It is applied to every HTML or JSX element via the runtime of your choice.
+It is applied to every HTML and JSX element via the runtime of your choice.
 
 ## Credits
 
