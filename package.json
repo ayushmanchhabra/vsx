@@ -22,7 +22,7 @@
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts --clean",
     "demo": "esbuild ./test/demo/index.tsx --bundle --outfile=./test/demo/index.js && serve ./test/demo",
-    "lint": "ts-standard ./src/*.ts",
+    "lint": "ts-standard ./src/*.ts --fix",
     "test": "jest"
   },
   "keywords": ["JSX", "JavaScript"],
