@@ -20,7 +20,7 @@
     "url": "https://github.com/ayushmxn/transform-jsx.git"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "build": "tsup src/index.ts --minify --format cjs,esm --dts --clean",
     "demo": "esbuild ./test/demo/index.tsx --bundle --outfile=./test/demo/index.js && serve ./test/demo",
     "lint": "ts-standard ./src/*.ts --fix",
     "test": "jest"

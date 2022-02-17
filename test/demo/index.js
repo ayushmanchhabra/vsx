@@ -28,28 +28,50 @@
   var appendChild = (parent, child) => {
     if (Array.isArray(child)) {
       child.forEach((nestedChild) => appendChild(parent, nestedChild));
-    } else if (typeof child !== "string" && (child == null ? void 0 : child.nodeType) === 1) {
-      parent.appendChild(child);
     } else if (typeof child === "string") {
       parent.appendChild(document.createTextNode(child));
+    } else if (typeof child === "number") {
+      parent.appendChild(document.createTextNode(child.toString()));
+    } else if ((child == null ? void 0 : child.nodeType) === 1) {
+      parent.appendChild(child);
     }
   };
   var createElement_default = createElement;
 
   // test/demo/index.tsx
-  var FooChild = () => /* @__PURE__ */ createElement_default("div", null, "Child");
-  var Foo = ({ style }) => {
-    return /* @__PURE__ */ createElement_default("div", {
-      style: {
-        height: "100vh",
-        width: "100vw",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center"
-      }
-    }, /* @__PURE__ */ createElement_default("button", {
-      onClick: () => alert("Hello, World!")
-    }, style), /* @__PURE__ */ createElement_default(FooChild, null));
+  var isIdUnique = (id) => {
+    return false;
   };
-  document.getElementById("root").appendChild(Foo({ style: "Hello, World!" }));
+  function createState(id, initialValue) {
+    if (isIdUnique(id)) {
+      throw `Error: id ${id} has already been used. Please use another id.`;
+    }
+    console.log(this);
+    let get = () => {
+      if (document.getElementById(id) === null) {
+        return initialValue;
+      } else {
+        return document.getElementById(id).innerText;
+      }
+    };
+    let set = (updatedValue) => {
+      if (document.getElementById(id) === null) {
+        console.error(`Element with id ${id} does not exist.`);
+      } else {
+        document.getElementById(id).innerText = updatedValue.toString();
+      }
+    };
+    return [get, set];
+  }
+  var Counter = () => {
+    let [count, setCount] = createState("gkhf78xf3", 0);
+    return /* @__PURE__ */ createElement_default("div", null, /* @__PURE__ */ createElement_default("button", {
+      onClick: () => setCount(Number(count() - 1))
+    }, "-"), /* @__PURE__ */ createElement_default("span", {
+      id: "gkhf78xf3"
+    }, count()), /* @__PURE__ */ createElement_default("button", {
+      onClick: () => setCount(Number(count()) + 1)
+    }, "+"));
+  };
+  document.getElementById("root").appendChild(Counter());
 })();
