@@ -21,7 +21,7 @@
   },
   "scripts": {
     "build": "tsup src/index.ts --minify --format cjs,esm --dts --clean",
-    "demo": "esbuild ./test/demo/index.tsx --bundle --outfile=./test/demo/index.js && serve ./test/demo",
+    "demo": "esbuild ./test/demo/index.tsx --bundle --minify --outfile=./test/demo/index.js && serve ./test/demo",
     "lint": "ts-standard ./src/*.ts --fix",
     "test": "jest"
   },
