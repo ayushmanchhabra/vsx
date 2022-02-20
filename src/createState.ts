@@ -8,9 +8,9 @@ interface State {
 }
 
 const createState = (initialValue: Data): [() => State, ((updatedValue: Data) => void)] => {
-  let type = typeof initialValue
+  const type = typeof initialValue
 
-  let id: string = uniqid()
+  const id: string = uniqid()
 
   const get = (): State => {
     if (document.getElementById(id) === null) {
@@ -46,7 +46,7 @@ const createState = (initialValue: Data): [() => State, ((updatedValue: Data) =>
   }
 
   const set = (updatedValue: Data): void => {
-    let element = document.getElementById(id)
+    const element = document.getElementById(id)
     if (element === null) {
       throw new Error(`Element with id ${id} does not exist.`)
     } else {
