@@ -25,11 +25,23 @@ import { createElement } from 'transform-jsx'
 
 ## API
 
-`createElement(tag: string | (() => Node), props: { [key: string]: any } | null, ...children: Array<null | string | Node>): Node`
+`createElement(tag: string | (() => Node), props: { [key: string]: any } | null, ...children: Array<string | Node>): Node`
 
 It is applied to every HTML and JSX element via the runtime of your choice.
 
-## Credits
+`createState(initialValue: Data): [get(): State, set(updatedValue: Data): void]`
+
+A hook function to manage DOM elements' state.
+
+`Data: null | number | string | boolean | Data[]`
+
+It represents a state variable's value with it's type information.
+
+`State: { key: string: typedValue?: Data}`
+
+Type definition of a state variable.
+
+## Inpiration/References
 
 - [JSX Without React](https://blog.stchur.com/jsx-without-react/)
 - [WTF is JSX](https://web.archive.org/web/20170918095722/https://jasonformat.com/wtf-is-jsx/)
