@@ -1,3 +1,5 @@
+import uniqid from 'uniqid'
+
 type Data = null | number | string | boolean | Data[]
 
 interface State {
@@ -5,8 +7,10 @@ interface State {
   value?: Data
 }
 
-const createState = (id: string, initialValue: Data): [() => State, ((updatedValue: Data) => void)] => {
-  const type = typeof initialValue
+const createState = (initialValue: Data): [() => State, ((updatedValue: Data) => void)] => {
+  let type = typeof initialValue
+
+  let id: string = uniqid()
 
   const get = (): State => {
     if (document.getElementById(id) === null) {
@@ -42,7 +46,7 @@ const createState = (id: string, initialValue: Data): [() => State, ((updatedVal
   }
 
   const set = (updatedValue: Data): void => {
-    const element = document.getElementById(id)
+    let element = document.getElementById(id)
     if (element === null) {
       throw new Error(`Element with id ${id} does not exist.`)
     } else {

@@ -1,11 +1,11 @@
 import { createElement, createState } from "../../../src"
 
 const Counter = (): HTMLElement => {
-    let [count, setCount] = createState('gkhf78xf3', 0)
+    let [count, setCount] = createState(10)
     return (
 	    <div
             style={{
-                height: '100%',
+                height: '100vh',
                 width: '100%',
                 display: 'flex',
                 alignItems: 'center',
@@ -17,16 +17,22 @@ const Counter = (): HTMLElement => {
             >
                 -
             </button>
-            <span
+            <input
                 id={count().key}
-                style={{
-                    margin: '10px'
+                onKeyDown={(event) => {
+                    setCount(event.target.value)
+                    console.log(count().value)
                 }}
-            >
-                {count().value}
-            </span>
+                style={{
+                    height: '20px',
+                    width: '100px',
+                    textAlign: 'center',
+                }}
+                type='number'
+                value={count().value}
+            />
             <button
-                onClick={() => setCount(count().value as number + 1)}
+                onClick={() => setCount((count().value as number) + 1)}
             >
                 +
             </button>
