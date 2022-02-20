@@ -1,7 +1,7 @@
 import { createElement, createState } from "../../../src"
 
 const Counter = (): HTMLElement => {
-    let [count, setCount] = createState(10)
+    let [count, setCount] = createState(0)
     return (
 	    <div
             style={{
