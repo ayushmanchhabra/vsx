@@ -1,4 +1,4 @@
-const createElement = (tag: string | (() => Node), props: null | { [key: string]: any }, ...children: Array<string | number | Node>): Node => {
+const createElement = (tag: string | (() => Node), props: null | { [key: string]: any }, ...children: Array<string | Node>): Node => {
   if (typeof tag !== 'string') {
     return tag()
   }
