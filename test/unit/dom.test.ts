@@ -1,10 +1,8 @@
 import { createElement } from '../../src'
 
 test('for single DOM element', () => {
-
     const actual = createElement('div', null)
     const expected = document.createElement('div')
-
     expect(actual).toStrictEqual(expected)
 })
 

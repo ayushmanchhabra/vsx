@@ -26,13 +26,15 @@ const createElement = (tag: string | (() => Node), props: null | { [key: string]
   return element
 }
 
-const appendChild = (parent: Node, child: null | string | Node | Node[]): void => {
+const appendChild = (parent: Node, child: null | string | number | Node | Node[]): void => {
   if (Array.isArray(child)) {
     child.forEach((nestedChild) => appendChild(parent, nestedChild))
-  } else if (typeof child !== 'string' && child?.nodeType === 1) {
-    parent.appendChild(child)
   } else if (typeof child === 'string') {
     parent.appendChild(document.createTextNode(child))
+  } else if (typeof child === 'number') {
+    parent.appendChild(document.createTextNode(child.toString()))
+  } else if (child?.nodeType === 1) {
+    parent.appendChild(child)
   }
 }
 
