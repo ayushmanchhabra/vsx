@@ -15,5 +15,5 @@ jobs:
           node-version: 14
           cache: 'pnpm'
       - run: pnpm install
-      - run: pnpm run lint
+      - run: pnpm lint
       - run: pnpm test
