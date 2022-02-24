@@ -1,7 +1,7 @@
 ### Bug/Feature/other
-- [] Bug
-- [] Feature
-- [] Other
+- [ ] Bug
+- [ ] Feature
+- [ ] Other
 
 ### Current/Absence of Behaviour
 
