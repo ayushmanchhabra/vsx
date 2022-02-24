@@ -4,7 +4,7 @@ Transform JSX into Vanilla Javascript.
 
 ## Getting Started
 
-Install using your package manager:
+Install using your preferred package manager:
 - `npm install transform-jsx`
 - `yarn add transform-jsx`
 - `pnpm add transform-jsx`
@@ -41,7 +41,16 @@ It represents a state variable's value with it's type information.
 
 Type definition of a state variable.
 
-## Inpiration/References
+## Contributing
+
+- Open an issue before submitting a pull request.
+- PRs should have short descriptive titles. For example:
+    - fix(docs): fix typo in `createElement` description
+    - feat(state): add support for arrays
+- Ensure PRs reference a related issue
+- Ensure there are tests that cover your changes
+
+## Inspiration/References
 
 - [JSX Without React](https://blog.stchur.com/jsx-without-react/)
 - [WTF is JSX](https://web.archive.org/web/20170918095722/https://jasonformat.com/wtf-is-jsx/)
