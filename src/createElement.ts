@@ -1,9 +1,14 @@
 const createElement = (tag: string | (() => Node), props: null | { [key: string]: unknown }, ...children: Array<string | Node>): Node => {
   if (typeof tag !== 'string') {
+    if (Array.isArray(tag())) {
+      const fragment = new DocumentFragment()
+      fragment.append(...children)
+      return fragment
+    }
     return tag()
   }
-
   const element = document.createElement(tag)
+
   if (props !== null) {
     Object.entries(props).forEach(([key, value]: [string, any]) => {
       if (key.startsWith('on') && key.toLowerCase() in window) {

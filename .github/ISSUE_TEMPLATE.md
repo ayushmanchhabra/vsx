@@ -1,7 +1,6 @@
-### Bug/Feature/other
-- [ ] Bug
-- [ ] Feature
-- [ ] Other
+### Issue Type
+
+- Bug/Feature/Other?
 
 ### Current/Absence of Behaviour
 

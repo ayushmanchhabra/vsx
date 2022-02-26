@@ -29,6 +29,10 @@ import { createElement } from 'transform-jsx'
 
 It is applied to every HTML and JSX element via the runtime of your choice.
 
+`createFragment(props: { [key: string]: any } | null, ...children: Array<string | Node>): Array<string | Node>`
+
+It is applied to every JSX fragment via the runtime of your choice.
+
 `createState(initialValue: Data): [get(): State, set(updatedValue: Data): void]`
 
 A hook function to manage DOM elements' state.

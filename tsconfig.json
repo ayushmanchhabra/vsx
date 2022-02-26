@@ -1,9 +1,10 @@
 {
     "compilerOptions": {
         "target": "ES6",
-        "lib": ["DOM", "ES2017"],
+        "lib": ["DOM", "DOM.Iterable", "ES2017"],
         "jsx":"preserve",
         "jsxFactory": "createElement",
+        "jsxFragmentFactory": "createFragment",
         "moduleResolution": "node",
         "isolatedModules": true,
         "strictNullChecks": true,
