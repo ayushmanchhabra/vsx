@@ -144,66 +144,10 @@ var createFragment_default = createFragment;
 
 // src/createState.ts
 var import_uniqid2 = __toESM(require_uniqid(), 1);
-var createState = (initialValue) => {
-  const type = typeof initialValue;
-  const id = (0, import_uniqid2.default)();
-  const get = () => {
-    var _a;
-    if (document.getElementById(id) === null) {
-      return {
-        key: id,
-        value: initialValue
-      };
-    } else {
-      let typedValue = (_a = document.getElementById(id)) == null ? void 0 : _a.innerText;
-      switch (type) {
-        case "boolean":
-          typedValue = typedValue === "true";
-          break;
-        case "number":
-          typedValue = Number(typedValue);
-          break;
-        case "object":
-          if (typedValue === "null") {
-            typedValue = null;
-          }
-          break;
-        case "string":
-          typedValue = String(typedValue);
-          break;
-        default:
-          break;
-      }
-      return {
-        key: id,
-        value: typedValue
-      };
-    }
-  };
-  const set = (updatedValue) => {
-    const element = document.getElementById(id);
-    if (element === null) {
-      throw new Error(`Element with id ${id} does not exist.`);
-    } else {
-      element.innerText = String(updatedValue);
-    }
-  };
-  return [get, set];
-};
-var createState_default = createState;
 
-// test/demo/examples/Counter.tsx
-var Counter = () => {
-  let [count, setCount] = createState_default(0);
-  return /* @__PURE__ */ createElement_default(createFragment_default, null, /* @__PURE__ */ createElement_default("button", {
-    onClick: () => setCount(count().value - 1)
-  }, "-"), /* @__PURE__ */ createElement_default("span", {
-    id: count().key
-  }, count().value), /* @__PURE__ */ createElement_default("button", {
-    onClick: () => setCount(count().value + 1)
-  }, "+"));
-};
-var Counter_default = Counter;
+// test/demo/examples/List.tsx
+var List = () => /* @__PURE__ */ createElement_default(createFragment_default, null);
+var List_default = List;
 
 // test/demo/index.tsx
-document.getElementById("root").appendChild(/* @__PURE__ */ c(Counter_default, null));
+document.getElementById("root").appendChild(/* @__PURE__ */ c(List_default, null));

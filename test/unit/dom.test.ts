@@ -1,4 +1,4 @@
-import { createElement } from '../../src'
+import { createElement, createFragment } from '../../src'
 
 test('for single DOM element', () => {
     const actual = createElement('div', null)
@@ -60,5 +60,12 @@ test('for nested JSX elements with text', () => {
     const actual = createElement('div', null, 'Parent', createElement(Foo, null))
     const expected = document.createElement('div')
     expected.innerHTML = 'Parent<div>Child</div>'
+    expect(actual).toStrictEqual(expected)
+})
+
+test('for single JSX fragment', () => {
+    const actual_fragment = createFragment(null)
+    const actual = createElement(actual_fragment, null)
+    const expected = createElement('div', null)
     expect(actual).toStrictEqual(expected)
 })
