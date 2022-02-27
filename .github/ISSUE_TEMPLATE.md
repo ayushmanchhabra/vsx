@@ -1,14 +1,15 @@
 ### Issue Type
 
-- Bug/Feature/Other?
+- [ ] Bug Fix
+- [ ] Feature
+- [ ] Other
 
 ### Current/Absence of Behaviour
 
 ### Expected/Proposed Behaviour
 
-### Environment
+### Additional Info
 
 - Operating System:
 - Browser:
-
-### Aditional Info
+- ...
