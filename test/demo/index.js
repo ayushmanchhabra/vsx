@@ -65,33 +65,6 @@ var require_uniqid = __commonJS({
   }
 });
 
-// dist/index.mjs
-var import_uniqid = __toESM(require_uniqid(), 1);
-var f = (n, e, ...o) => {
-  if (typeof n != "string") {
-    if (Array.isArray(n())) {
-      let r = new DocumentFragment();
-      return r.append(...o), r;
-    }
-    return n();
-  }
-  let s = document.createElement(n);
-  return e !== null && Object.entries(e).forEach(([r, a]) => {
-    if (r.startsWith("on") && r.toLowerCase() in window && s.addEventListener(r.toLowerCase().substring(2), a), r === "style") {
-      let t = "";
-      for (let l in a)
-        t += `${l.replace(/([A-Z])/g, (m) => `-${m[0].toLowerCase()}`)}: ${a[l]};
-`;
-      s.setAttribute(r, t);
-    } else
-      s.setAttribute(r, a.toString());
-  }), o.forEach((r) => d(s, r)), s;
-};
-var d = (n, e) => {
-  Array.isArray(e) ? e.forEach((o) => d(n, o)) : typeof e == "string" ? n.appendChild(document.createTextNode(e)) : typeof e == "number" ? n.appendChild(document.createTextNode(e.toString())) : (e == null ? void 0 : e.nodeType) === 1 && n.appendChild(e);
-};
-var c = f;
-
 // src/createElement.ts
 var createElement = (tag, props, ...children) => {
   if (typeof tag !== "string") {
@@ -143,10 +116,10 @@ var createFragment = (props, ...children) => {
 var createFragment_default = createFragment;
 
 // src/createState.ts
-var import_uniqid2 = __toESM(require_uniqid());
+var import_uniqid = __toESM(require_uniqid());
 var createState = (initialValue) => {
   const type = typeof initialValue;
-  const id = (0, import_uniqid2.default)();
+  const id = (0, import_uniqid.default)();
   const get = () => {
     var _a;
     if (document.getElementById(id) === null) {
@@ -206,4 +179,4 @@ var Counter = () => {
 var Counter_default = Counter;
 
 // test/demo/index.tsx
-document.getElementById("root").appendChild(/* @__PURE__ */ c(Counter_default, null));
+document.getElementById("root").appendChild(/* @__PURE__ */ createElement_default(Counter_default, null));

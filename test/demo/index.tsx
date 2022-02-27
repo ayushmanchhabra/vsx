@@ -1,4 +1,4 @@
-import { createElement } from '../../dist/index.mjs'
+import { createElement } from '../../src'
 
 import Counter from './examples/Counter'
 
