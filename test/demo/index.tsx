@@ -1,4 +1,4 @@
-import { createElement } from '../../src'
+import { createElement } from '../../dist'
 
 import Counter from './examples/Counter'
 
