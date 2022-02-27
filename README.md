@@ -1,13 +1,35 @@
 # Transform JSX
 
-Transform JSX into Vanilla Javascript.
+Write reactive vanilla JavaScript in JSX.
 
-## Getting Started
+## Installation
 
-Install using your preferred package manager:
-- `npm install transform-jsx`
-- `yarn add transform-jsx`
-- `pnpm add transform-jsx`
+Using npm:
+```javascript
+npm install transform-jsx
+```
+
+Using yarn:
+```javascript
+yarn add transform-jsx
+```
+
+Using pnpm:
+```javascript
+pnpm add transform-jsx
+```
+
+Using unpkg CDN:
+```html
+<script src="https://unpkg.com/transform-jsx@0.2.1/dist/index.js">
+```
+
+Using jsDelivr CDN:
+```html
+<script src="https://cdn.jsdelivr.net/npm/transform-jsx@0.2.1/dist/index.min.js"></script>
+```
+
+> Caveat: By using a CDN, you can't write JSX although it's still better than writing regular JavaScript IMO.
 
 ## Usage
 
@@ -16,14 +38,41 @@ With TypeScript, add these options in your `tsconfig`
 ```json
     "jsx":"preserve",
     "jsxFactory": "createElement",
+    "jsxFragmentFactory": "createFragment",
 ```
 
-Import the `createElement` function at the top of every file you're using JSX:
+Here's an example of a counter:
+
 ```javascript
-import { createElement } from 'transform-jsx'
+import { createElement, createFragment, createState } from 'transform-jsx'
+
+const Counter = () => {
+    const [count, setCount] = createState(0)
+
+    return (
+        <>
+            <button
+                onClick={() => setCount(count().value - 1 )}
+            >
+                -
+            </button>
+            <span
+                id={count().key}
+            >
+                {count().value}
+            </span>
+            <button
+                onClick={() => setCount(count().value + 1 )}
+            >
+                +
+            </button>
+        </>
+    )
+}
+
 ```
 
-## API
+## API Reference
 
 `createElement(tag: string | (() => Node), props: { [key: string]: any } | null, ...children: Array<string | Node>): Node`
 
