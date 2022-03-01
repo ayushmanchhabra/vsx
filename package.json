@@ -19,7 +19,7 @@
   },
   "scripts": {
     "build": "tsup src/index.ts --minify --format cjs,esm --dts --clean",
-    "demo": "esbuild ./test/demo/index.tsx --bundle --platform=node --outfile=./test/demo/index.js && serve ./test/demo",
+    "demo": "pnpm build && esbuild ./test/demo/index.tsx --bundle --platform=node --outfile=./test/demo/index.js && serve ./test/demo",
     "lint": "ts-standard ./src/*.ts --fix",
     "test": "jest"
   },

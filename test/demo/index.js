@@ -67,28 +67,31 @@ var require_uniqid = __commonJS({
 
 // dist/index.js
 var import_uniqid = __toESM(require_uniqid(), 1);
-var f = (n, e, ...o) => {
-  if (typeof n != "string") {
-    if (Array.isArray(n())) {
-      let r = new DocumentFragment();
-      return r.append(...o), r;
-    }
-    return n();
-  }
-  let s = document.createElement(n);
-  return e !== null && Object.entries(e).forEach(([r, a]) => {
-    if (r.startsWith("on") && r.toLowerCase() in window && s.addEventListener(r.toLowerCase().substring(2), a), r === "style") {
-      let t = "";
-      for (let d in a)
-        t += `${d.replace(/([A-Z])/g, (m) => `-${m[0].toLowerCase()}`)}: ${a[d]};
+var f = (t, e, ...r) => {
+  if (typeof t != "string" && Array.isArray(t())) {
+    let o = new DocumentFragment();
+    return o.append(...r), o;
+  } else {
+    if (typeof t != "string" && !Array.isArray(t()))
+      return t();
+    if (typeof t == "string") {
+      let o = document.createElement(t);
+      return e !== null && Object.entries(e).forEach(([a, s]) => {
+        if (a.startsWith("on") && a.toLowerCase() in window && o.addEventListener(a.toLowerCase().substring(2), s), a === "style") {
+          let n = "";
+          for (let l in s)
+            n += `${l.replace(/([A-Z])/g, (m) => `-${m[0].toLowerCase()}`)}: ${s[l]};
 `;
-      s.setAttribute(r, t);
+          o.setAttribute(a, n);
+        } else
+          o.setAttribute(a, s.toString());
+      }), r.forEach((a) => d(o, a)), o;
     } else
-      s.setAttribute(r, a.toString());
-  }), o.forEach((r) => l(s, r)), s;
+      return document.createElement("div");
+  }
 };
-var l = (n, e) => {
-  Array.isArray(e) ? e.forEach((o) => l(n, o)) : typeof e == "string" ? n.appendChild(document.createTextNode(e)) : typeof e == "number" ? n.appendChild(document.createTextNode(e.toString())) : (e == null ? void 0 : e.nodeType) === 1 && n.appendChild(e);
+var d = (t, e) => {
+  Array.isArray(e) ? e.forEach((r) => d(t, r)) : typeof e == "string" ? t.appendChild(document.createTextNode(e)) : typeof e == "number" ? t.appendChild(document.createTextNode(e.toString())) : (e == null ? void 0 : e.nodeType) === 1 && t.appendChild(e);
 };
 var c = f;
 
