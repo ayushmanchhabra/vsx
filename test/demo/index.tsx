@@ -1,5 +1,6 @@
-import { createElement } from '../../src'
+import { createElement } from '../../dist'
 
 import Counter from './examples/Counter'
+import List from './examples/List'
 
-document.getElementById("root").appendChild(<Counter />)
+document.getElementById("root").appendChild(<List />)

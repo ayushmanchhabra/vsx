@@ -65,31 +65,70 @@ var require_uniqid = __commonJS({
   }
 });
 
+// dist/index.js
+var import_uniqid = __toESM(require_uniqid(), 1);
+var f = (t, e, ...r) => {
+  if (typeof t != "string" && Array.isArray(t())) {
+    let o = new DocumentFragment();
+    return o.append(...r), o;
+  } else {
+    if (typeof t != "string" && !Array.isArray(t()))
+      return t();
+    if (typeof t == "string") {
+      let o = document.createElement(t);
+      return e !== null && Object.entries(e).forEach(([a, s]) => {
+        if (a.startsWith("on") && a.toLowerCase() in window && o.addEventListener(a.toLowerCase().substring(2), s), a === "style") {
+          let n = "";
+          for (let l in s)
+            n += `${l.replace(/([A-Z])/g, (m) => `-${m[0].toLowerCase()}`)}: ${s[l]};
+`;
+          o.setAttribute(a, n);
+        } else
+          o.setAttribute(a, s.toString());
+      }), r.forEach((a) => d(o, a)), o;
+    } else
+      return document.createElement("div");
+  }
+};
+var d = (t, e) => {
+  Array.isArray(e) ? e.forEach((r) => d(t, r)) : typeof e == "string" ? t.appendChild(document.createTextNode(e)) : typeof e == "number" ? t.appendChild(document.createTextNode(e.toString())) : (e == null ? void 0 : e.nodeType) === 1 && t.appendChild(e);
+};
+var c = f;
+
 // src/createElement.ts
 var createElement = (tag, props, ...children) => {
-  if (typeof tag !== "string") {
-    return tag();
-  }
-  const element = document.createElement(tag);
-  if (props !== null) {
-    Object.entries(props).forEach(([key, value]) => {
-      if (key.startsWith("on") && key.toLowerCase() in window) {
-        element.addEventListener(key.toLowerCase().substring(2), value);
-      }
-      if (key === "style") {
-        let style = "";
-        for (const obj in value) {
-          style += `${obj.replace(/([A-Z])/g, (g) => `-${g[0].toLowerCase()}`)}: ${value[obj]};
-`;
+  if (typeof tag !== "string" && Array.isArray(tag())) {
+    const fragment = new DocumentFragment();
+    fragment.append(...children);
+    return fragment;
+  } else if (typeof tag !== "string" && !Array.isArray(tag())) {
+    const fn = tag;
+    return fn();
+  } else if (typeof tag === "string") {
+    const element = document.createElement(tag);
+    if (props !== null) {
+      Object.entries(props).forEach(([key, value]) => {
+        if (key.startsWith("on") && key.toLowerCase() in window) {
+          element.addEventListener(key.toLowerCase().substring(2), value);
         }
-        element.setAttribute(key, style);
-      } else {
-        element.setAttribute(key, value.toString());
-      }
-    });
+        if (key === "style") {
+          let style = "";
+          for (const obj in value) {
+            style += `${obj.replace(/([A-Z])/g, (g) => `-${g[0].toLowerCase()}`)}: ${value[obj]};
+`;
+          }
+          element.setAttribute(key, style);
+        } else {
+          element.setAttribute(key, value.toString());
+        }
+      });
+    }
+    children.forEach((child) => appendChild(element, child));
+    return element;
+  } else {
+    const element = document.createElement("div");
+    return element;
   }
-  children.forEach((child) => appendChild(element, child));
-  return element;
 };
 var appendChild = (parent, child) => {
   if (Array.isArray(child)) {
@@ -104,87 +143,20 @@ var appendChild = (parent, child) => {
 };
 var createElement_default = createElement;
 
-// src/createState.ts
-var import_uniqid = __toESM(require_uniqid());
-var createState = (initialValue) => {
-  let type = typeof initialValue;
-  let id = (0, import_uniqid.default)();
-  const get = () => {
-    var _a;
-    if (document.getElementById(id) === null) {
-      return {
-        key: id,
-        value: initialValue
-      };
-    } else {
-      let typedValue = (_a = document.getElementById(id)) == null ? void 0 : _a.innerText;
-      switch (type) {
-        case "boolean":
-          typedValue = typedValue === "true";
-          break;
-        case "number":
-          typedValue = Number(typedValue);
-          break;
-        case "object":
-          if (typedValue === "null") {
-            typedValue = null;
-          }
-          break;
-        case "string":
-          typedValue = String(typedValue);
-          break;
-        default:
-          break;
-      }
-      return {
-        key: id,
-        value: typedValue
-      };
-    }
-  };
-  const set = (updatedValue) => {
-    let element = document.getElementById(id);
-    if (element === null) {
-      throw new Error(`Element with id ${id} does not exist.`);
-    } else {
-      element.innerText = String(updatedValue);
-    }
-  };
-  return [get, set];
+// src/createFragment.ts
+var createFragment = (props, ...children) => {
+  return children;
 };
-var createState_default = createState;
+var createFragment_default = createFragment;
 
-// test/demo/examples/Counter.tsx
-var Counter = () => {
-  let [count, setCount] = createState_default(10);
-  return /* @__PURE__ */ createElement_default("div", {
-    style: {
-      height: "100vh",
-      width: "100%",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center"
-    }
-  }, /* @__PURE__ */ createElement_default("button", {
-    onClick: () => setCount(count().value - 1)
-  }, "-"), /* @__PURE__ */ createElement_default("input", {
-    id: count().key,
-    onKeyDown: (event) => {
-      setCount(event.target.value);
-      console.log(count().value);
-    },
-    style: {
-      height: "20px",
-      width: "100px",
-      textAlign: "center"
-    },
-    type: "number",
-    value: count().value
-  }), /* @__PURE__ */ createElement_default("button", {
-    onClick: () => setCount(count().value + 1)
-  }, "+"));
+// src/createState.ts
+var import_uniqid2 = __toESM(require_uniqid(), 1);
+
+// test/demo/examples/List.tsx
+var List = () => {
+  return /* @__PURE__ */ createElement_default(createFragment_default, null, /* @__PURE__ */ createElement_default("li", null, "Item 1"), /* @__PURE__ */ createElement_default("li", null, "Item 2"), "Random text");
 };
-var Counter_default = Counter;
+var List_default = List;
 
 // test/demo/index.tsx
-document.getElementById("root").appendChild(/* @__PURE__ */ createElement_default(Counter_default, null));
+document.getElementById("root").appendChild(/* @__PURE__ */ c(List_default, null));

@@ -1,5 +1,6 @@
-### Bug/Feature/other
-- [ ] Bug
+### Issue Type
+
+- [ ] Bug Fix
 - [ ] Feature
 - [ ] Other
 
@@ -7,9 +8,8 @@
 
 ### Expected/Proposed Behaviour
 
-### Environment
+### Additional Info
 
 - Operating System:
 - Browser:
-
-### Aditional Info
+- ...

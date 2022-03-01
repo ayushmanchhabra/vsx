@@ -1,4 +1,4 @@
-import { createElement } from '../../src'
+import { createElement, createFragment } from '../../src'
 
 test('for single DOM element', () => {
     const actual = createElement('div', null)
@@ -60,5 +60,41 @@ test('for nested JSX elements with text', () => {
     const actual = createElement('div', null, 'Parent', createElement(Foo, null))
     const expected = document.createElement('div')
     expected.innerHTML = 'Parent<div>Child</div>'
+    expect(actual).toStrictEqual(expected)
+})
+
+test('for single JSX fragment', () => {
+    // Mimick a fragment written as <></>
+    const actual = createElement(() => createFragment(null), null)
+    const expected = new DocumentFragment()
+    expect(actual).toStrictEqual(expected)
+})
+
+test('for single JSX fragment with text', () => {
+    // Mimick a fragment written as <>Hello, World!</>
+    const actual = createElement(() => createFragment(null), null, 'Hello, World!')
+    const expected = new DocumentFragment()
+    expected.append('Hello, World!')
+    expect(actual).toStrictEqual(expected)
+})
+
+test('for nested JSX fragments and JSX elements with text', () => {
+    const actual = createElement(
+        () => createFragment(null),
+        null,
+        createElement('li', null, 'Item 1'),
+        createElement('li', null, 'Item 2'),
+        'Random text'
+    )
+    const expected = new DocumentFragment()
+    const item1 = document.createElement('li')
+    item1.textContent = 'Item 1'
+    const item2 = document.createElement('li')
+    item2.textContent = 'Item 2'
+    expected.append(
+        item1,
+        item2,
+        'Random text'
+    )
     expect(actual).toStrictEqual(expected)
 })
