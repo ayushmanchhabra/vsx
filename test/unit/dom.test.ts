@@ -64,8 +64,37 @@ test('for nested JSX elements with text', () => {
 })
 
 test('for single JSX fragment', () => {
-    const actual_fragment = createFragment(null)
-    const actual = createElement(actual_fragment, null)
-    const expected = createElement('div', null)
+    // Mimick a fragment written as <></>
+    const actual = createElement(() => createFragment(null), null)
+    const expected = new DocumentFragment()
+    expect(actual).toStrictEqual(expected)
+})
+
+test('for single JSX fragment with text', () => {
+    // Mimick a fragment written as <>Hello, World!</>
+    const actual = createElement(() => createFragment(null), null, 'Hello, World!')
+    const expected = new DocumentFragment()
+    expected.append('Hello, World!')
+    expect(actual).toStrictEqual(expected)
+})
+
+test('for nested JSX fragments and JSX elements with text', () => {
+    const actual = createElement(
+        () => createFragment(null),
+        null,
+        createElement('li', null, 'Item 1'),
+        createElement('li', null, 'Item 2'),
+        'Random text'
+    )
+    const expected = new DocumentFragment()
+    const item1 = document.createElement('li')
+    item1.textContent = 'Item 1'
+    const item2 = document.createElement('li')
+    item2.textContent = 'Item 2'
+    expected.append(
+        item1,
+        item2,
+        'Random text'
+    )
     expect(actual).toStrictEqual(expected)
 })

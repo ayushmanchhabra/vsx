@@ -94,34 +94,38 @@ var c = f;
 
 // src/createElement.ts
 var createElement = (tag, props, ...children) => {
-  if (typeof tag !== "string") {
-    if (Array.isArray(tag())) {
-      const fragment = new DocumentFragment();
-      fragment.append(...children);
-      return fragment;
-    }
-    return tag();
-  }
-  const element = document.createElement(tag);
-  if (props !== null) {
-    Object.entries(props).forEach(([key, value]) => {
-      if (key.startsWith("on") && key.toLowerCase() in window) {
-        element.addEventListener(key.toLowerCase().substring(2), value);
-      }
-      if (key === "style") {
-        let style = "";
-        for (const obj in value) {
-          style += `${obj.replace(/([A-Z])/g, (g) => `-${g[0].toLowerCase()}`)}: ${value[obj]};
-`;
+  if (typeof tag !== "string" && Array.isArray(tag())) {
+    const fragment = new DocumentFragment();
+    fragment.append(...children);
+    return fragment;
+  } else if (typeof tag !== "string" && !Array.isArray(tag())) {
+    const fn = tag;
+    return fn();
+  } else if (typeof tag === "string") {
+    const element = document.createElement(tag);
+    if (props !== null) {
+      Object.entries(props).forEach(([key, value]) => {
+        if (key.startsWith("on") && key.toLowerCase() in window) {
+          element.addEventListener(key.toLowerCase().substring(2), value);
         }
-        element.setAttribute(key, style);
-      } else {
-        element.setAttribute(key, value.toString());
-      }
-    });
+        if (key === "style") {
+          let style = "";
+          for (const obj in value) {
+            style += `${obj.replace(/([A-Z])/g, (g) => `-${g[0].toLowerCase()}`)}: ${value[obj]};
+`;
+          }
+          element.setAttribute(key, style);
+        } else {
+          element.setAttribute(key, value.toString());
+        }
+      });
+    }
+    children.forEach((child) => appendChild(element, child));
+    return element;
+  } else {
+    const element = document.createElement("div");
+    return element;
   }
-  children.forEach((child) => appendChild(element, child));
-  return element;
 };
 var appendChild = (parent, child) => {
   if (Array.isArray(child)) {
@@ -146,7 +150,9 @@ var createFragment_default = createFragment;
 var import_uniqid2 = __toESM(require_uniqid(), 1);
 
 // test/demo/examples/List.tsx
-var List = () => /* @__PURE__ */ createElement_default(createFragment_default, null);
+var List = () => {
+  return /* @__PURE__ */ createElement_default(createFragment_default, null, /* @__PURE__ */ createElement_default("li", null, "Item 1"), /* @__PURE__ */ createElement_default("li", null, "Item 2"), "Random text");
+};
 var List_default = List;
 
 // test/demo/index.tsx
