@@ -14,10 +14,6 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "files": [
-    "./dist"
-
-  ],
   "homepage": "https://github.com/ayushmxn/transform-jsx",
   "repository": {
     "type": "git",
