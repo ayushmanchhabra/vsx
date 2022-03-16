@@ -1,7 +1,7 @@
 {
   "name": "transform-jsx",
   "version": "0.3.2",
-  "description": "Transform JSX into vanilla JavaScript",
+  "description": "Write reactive vanilla JavaScript in JSX.",
   "author": "Ayushman Chhabra <ayushmxn@outlook.com>",
   "license": "MIT",
   "type": "module",
@@ -23,12 +23,16 @@
     "build": "tsup src/index.ts --minify --format cjs,esm --dts --clean",
     "demo": "pnpm build && esbuild ./test/demo/index.tsx --bundle --platform=node --outfile=./test/demo/index.js && serve ./test/demo",
     "lint": "ts-standard ./src/*.ts --fix",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [
     "JSX",
     "JavaScript"
   ],
+  "dependencies": {
+    "uniqid": "^5.4.0"
+  },
   "devDependencies": {
     "@types/jest": "^27.4.1",
     "@types/node": "^14.18.12",
@@ -49,8 +53,5 @@
       "^.+\\.ts?$": "ts-jest"
     },
     "testEnvironment": "jsdom"
-  },
-  "dependencies": {
-    "uniqid": "^5.4.0"
   }
 }
