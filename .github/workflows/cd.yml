@@ -3,9 +3,6 @@ on:
   push:
     branches:
     - main
-  pull_request:
-    branches:
-    - main
 
 jobs:
   publish:
@@ -22,8 +19,6 @@ jobs:
           node-version: '16'
 
       - run: pnpm install
-      - run: pnpm lint
-      - run: pnpm test
       - run: pnpm build
       - uses: JS-DevTools/npm-publish@v1
         with:
