@@ -7,7 +7,7 @@ specifiers:
   esbuild: 0.14.39
   eslint: ^7.0.0
   jest: 28.1.0
-  jest-environment-jsdom: ^28.1.0
+  jest-environment-jsdom: 28.1.0
   jsdom: 19.0.0
   serve: 13.0.2
   ts-jest: 28.0.2
