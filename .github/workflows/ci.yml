@@ -19,5 +19,6 @@ jobs:
           node-version: '16'
 
       - run: pnpm install
+      - run: pnpm format
       - run: pnpm lint
       - run: pnpm test
