@@ -1,11 +1,3 @@
-declare const createElement: (tag: string | (() => Node) | (() => Array<string | Node>), props: {
-    [key: string]: unknown;
-} | null, ...children: Array<string | Node>) => Node;
-
-declare const createFragment: (props: {
-    [key: string]: unknown;
-} | null, ...children: Array<string | Node>) => Array<string | Node>;
-
 declare type Data = null | number | string | boolean | Data[];
 interface State {
     key: string;
@@ -13,4 +5,13 @@ interface State {
 }
 declare const createState: (initialValue: Data) => [() => State, (updatedValue: Data) => void];
 
-export { createElement, createFragment, createState };
+declare const _default: {
+    createElement: (tag: string | (() => Node) | (() => (string | Node)[]), props: {
+        [key: string]: unknown;
+    } | null, ...children: (string | Node)[]) => Node;
+    createFragment: (props: {
+        [key: string]: unknown;
+    } | null, ...children: (string | Node)[]) => (string | Node)[];
+};
+
+export { createState, _default as default };

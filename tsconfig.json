@@ -1,10 +1,10 @@
 {
     "compilerOptions": {
-        "target": "ES2021",
-        "lib": ["DOM", "DOM.Iterable", "ES2021"],
+        "target": "ES2022",
+        "lib": ["DOM", "DOM.Iterable", "ES2022"],
         "jsx":"preserve",
-        "jsxFactory": "createElement",
-        "jsxFragmentFactory": "createFragment",
+        "jsxFactory": "VSX.createElement",
+        "jsxFragmentFactory": "VSX.createFragment",
         "moduleResolution": "node",
         "isolatedModules": true,
         "strictNullChecks": true,

@@ -10,10 +10,10 @@ interface State {
 const createState = (
   initialValue: Data,
 ): [
-    () => State,
-    //eslint-disable-next-line
-    (updatedValue: Data) => void
-  ] => {
+  () => State,
+  //eslint-disable-next-line
+  (updatedValue: Data) => void,
+] => {
   const type = typeof initialValue;
 
   const id: string = uniqid();

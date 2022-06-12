@@ -1,4 +1,4 @@
-# Transform JSX
+# vsx
 
 Write reactive vanilla JavaScript in JSX.
 
@@ -6,27 +6,27 @@ Write reactive vanilla JavaScript in JSX.
 
 Using npm:
 ```javascript
-npm install transform-jsx
+npm install vsx
 ```
 
 Using yarn:
 ```javascript
-yarn add transform-jsx
+yarn add vsx
 ```
 
 Using pnpm:
 ```javascript
-pnpm add transform-jsx
+pnpm add vsx
 ```
 
 Using unpkg CDN:
 ```html
-<script src="https://unpkg.com/transform-jsx@0.2.1/dist/index.js">
+<script src="https://unpkg.com/vsx@0.4.0/dist/index.js">
 ```
 
 Using jsDelivr CDN:
 ```html
-<script src="https://cdn.jsdelivr.net/npm/transform-jsx@0.2.1/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vsx@0.4.0/dist/index.min.js"></script>
 ```
 
 > Caveat: By using a CDN, you can't write JSX although it's still better than writing regular JavaScript IMO.
@@ -44,10 +44,10 @@ With TypeScript, add these options in your `tsconfig`
 Here's an example of a counter:
 
 ```javascript
-import { createElement, createFragment, createState } from 'transform-jsx'
+import VSX, { createState } from "vsx";
 
 const Counter = () => {
-    const [count, setCount] = createState(0)
+    const [count, setCount] = createState(0);
 
     return (
         <>

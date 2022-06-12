@@ -1,4 +1,4 @@
-import { createElement, createFragment, createState } from "../../../src";
+import VSX, { createState } from "../../../src";
 
 const Counter = (): HTMLElement => {
   let [count, setCount] = createState(0);

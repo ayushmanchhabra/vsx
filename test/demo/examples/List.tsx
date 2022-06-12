@@ -1,4 +1,4 @@
-import { createElement, createFragment } from "../../../src";
+import VSX from "../../../src";
 
 const List = () => {
   return (
