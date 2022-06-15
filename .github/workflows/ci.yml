@@ -17,9 +17,9 @@ jobs:
       - uses: actions/setup-node@v3.1.1
         with:
           node-version: '16'
-          cache: 'pnpm'
+          cache: 'npm'
 
-      - run: pnpm install
-      - run: pnpm format
-      - run: pnpm lint
-      - run: pnpm test
+      - run: npm ci
+      - run: npm run format
+      - run: npm run lint
+      - run: npm run test
