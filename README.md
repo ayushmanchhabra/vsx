@@ -37,17 +37,21 @@ With TypeScript, add these options in your `tsconfig`
 
 ```json
     "jsx":"preserve",
-    "jsxFactory": "createElement",
-    "jsxFragmentFactory": "createFragment",
+    "jsxFactory": "VSX.createElement",
+    "jsxFragmentFactory": "VSX.createFragment",
 ```
 
 Here's an example of a counter:
 
 ```javascript
-import VSX, { createState } from "vsx";
+import VSX, { createEffect, createState } from "vsx";
 
 const Counter = () => {
     const [count, setCount] = createState(0);
+
+    createEffect(() => {
+        console.log("Count", count().value)
+    }, [count().key]);
 
     return (
         <>
@@ -86,6 +90,10 @@ It is applied to every JSX fragment via the runtime of your choice.
 
 A hook function to manage DOM elements' state.
 
+`createEffect(fn: () => void, deps: string[]): void`
+
+A hook function to manage side effects.
+
 `Data: null | number | string | boolean | Data[]`
 
 It represents a state variable's value with it's type information.
@@ -111,4 +119,4 @@ Type definition of a state variable.
 
 ## License
 
-MIT
+[MIT](https://github.com/ayushmxn/vsx/blob/main/.github/LICENSE)

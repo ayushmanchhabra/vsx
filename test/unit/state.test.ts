@@ -1,4 +1,4 @@
-import { createElement, createState } from "../../src";
+import VSX, { createState } from "../../src";
 
 // initial state -> getter, setter -> element at id
 
@@ -46,7 +46,7 @@ test("for error thrown when setter is called but state value is not attached to 
 
 test("for correct boolean value on state change", () => {
   const [state, setState] = createState(false);
-  const button = createElement("button", {
+  const button = VSX.createElement("button", {
     id: state().key,
     onClick: () => setState(true),
   });

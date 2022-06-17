@@ -1,3 +1,5 @@
+declare const createEffect: (fn: () => void, deps: string[]) => void;
+
 declare type Data = null | number | string | boolean | Data[];
 interface State {
     key: string;
@@ -14,4 +16,4 @@ declare const _default: {
     } | null, ...children: (string | Node)[]) => (string | Node)[];
 };
 
-export { createState, _default as default };
+export { createEffect, createState, _default as default };
