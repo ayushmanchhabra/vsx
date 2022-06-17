@@ -19,14 +19,19 @@ Using pnpm:
 pnpm add vsx
 ```
 
+Using ESM CDN:
+```html
+<script src="https://esm.sh/vsx">
+```
+
 Using unpkg CDN:
 ```html
-<script src="https://unpkg.com/vsx@0.4.0/dist/index.js">
+<script src="https://unpkg.com/vsx">
 ```
 
 Using jsDelivr CDN:
 ```html
-<script src="https://cdn.jsdelivr.net/npm/vsx@0.4.0/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vsx"></script>
 ```
 
 > Caveat: By using a CDN, you can't write JSX although it's still better than writing regular JavaScript IMO.
