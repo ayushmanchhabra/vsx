@@ -1,10 +1,7 @@
-export type _State = {
-  key: string,
-  value: null | string | number | (() => _State) | Element | Element[]
-};
+import State from "./schema/State";
 
 const createElement = (
-  tag: string | (() => Element) | (() => Array<string | (() => _State) | Element>),
+  tag: string | (() => Element) | (() => Array<string | (() => State) | Element>),
   props: null | { [key: string]: unknown },
   ...children: Array<string | Element>
 ): Element | DocumentFragment => {
@@ -47,7 +44,7 @@ const createElement = (
 
 const appendChild = (
   parent: Element,
-  child: null | string | number | (() => _State) | Element | Node | Element[],
+  child: null | string | number | (() => State) | Element | Node | Element[],
 ): void => {
   if (Array.isArray(child)) {
     child.forEach((nestedChild) => appendChild(parent, nestedChild));

@@ -1,18 +1,13 @@
 import uniqid from "uniqid";
 
-type Data = null | number | string | boolean | Data[];
-
-interface State {
-  key: string;
-  value?: Data;
-}
+import State from "./schema/State";
 
 const createState = (
-  initialValue: Data,
+  initialValue: State["value"],
 ): [
   () => State,
   //eslint-disable-next-line
-  (updatedValue: Data) => void,
+  (updatedValue: State["value"]) => void,
 ] => {
   const type = typeof initialValue;
 
@@ -25,7 +20,7 @@ const createState = (
         value: initialValue,
       };
     } else {
-      let typedValue: Data | undefined = document.getElementById(id)?.innerText;
+      let typedValue: State["value"] = document.getElementById(id)?.innerText;
       switch (type) {
         case "boolean":
           typedValue = typedValue === "true";
@@ -51,7 +46,7 @@ const createState = (
     }
   };
 
-  const set = (updatedValue: Data): void => {
+  const set = (updatedValue: State["value"]): void => {
     const element = document.getElementById(id);
     if (element === null) {
       throw new Error(`Element with id ${id} does not exist.`);
