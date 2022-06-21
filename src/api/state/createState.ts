@@ -1,6 +1,6 @@
 import uniqid from "uniqid";
 
-import State from "./schema/State";
+import State from "../../schema/State";
 
 const createState = (
   initialValue: State["value"],
@@ -54,6 +54,7 @@ const createState = (
       element.innerText = String(updatedValue);
     }
   };
+
   return [get, set];
 };
 

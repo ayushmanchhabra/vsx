@@ -1,4 +1,4 @@
-import State from "./schema/State";
+import State from "../../schema/State";
 
 const createElement = (
   tag: string | (() => Element) | (() => Array<string | (() => State) | Element>),
@@ -44,10 +44,12 @@ const createElement = (
 
 const appendChild = (
   parent: Element,
-  child: null | string | number | (() => State) | Element | Node | Element[],
+  child?: null | boolean | number | string | (() => State) | Element | Element[],
 ): void => {
   if (Array.isArray(child)) {
     child.forEach((nestedChild) => appendChild(parent, nestedChild));
+  } else if (typeof child === "boolean") {
+    parent.appendChild(document.createElement(child.toString()));
   } else if (typeof child === "string") {
     parent.appendChild(document.createTextNode(child));
   } else if (typeof child === "number") {

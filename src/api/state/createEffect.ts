@@ -1,4 +1,4 @@
-import State from "./schema/State";
+import State from "../../schema/State";
 
 const createEffect = (fn: () => void, deps: (() => State)[]): void => {
   window.onload = () => {
