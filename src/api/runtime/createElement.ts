@@ -1,9 +1,9 @@
 import State from "../../schema/State";
 
 const createElement = (
-  tag: string | (() => Element) | (() => Array<string | (() => State) | Element>),
+  tag: string | (() => Element | DocumentFragment | (() => (string | Element)[])) | (() => Array<string | (() => State) | Element>),
   props: null | { [key: string]: unknown },
-  ...children: Array<string | Element>
+  ...children: Array<string | Element | DocumentFragment>
 ): Element | DocumentFragment => {
   if (typeof tag !== "string" && Array.isArray(tag())) {
     const fragment = new DocumentFragment();
@@ -44,7 +44,7 @@ const createElement = (
 
 const appendChild = (
   parent: Element,
-  child?: null | boolean | number | string | (() => State) | Element | Element[],
+  child?: null | boolean | number | string | (() => State) | Element | Element[] | DocumentFragment,
 ): void => {
   if (Array.isArray(child)) {
     child.forEach((nestedChild) => appendChild(parent, nestedChild));

@@ -1,7 +1,7 @@
 const createFragment = (
-  props: null | { [key: string]: unknown },
-  ...children: Array<string | Node>
-): Array<string | Node> => {
+  _: null | { [key: string]: unknown },
+  ...children: Array<string | Element>
+): Array<string | Element> => {
   return children;
 };
 
