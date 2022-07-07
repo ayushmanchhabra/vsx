@@ -56,7 +56,7 @@ const Counter = () => {
 
     createEffect(() => {
         console.log("Count", count().value)
-    }, [count().key]);
+    }, [count]);
 
     return (
         <>
@@ -65,10 +65,8 @@ const Counter = () => {
             >
                 -
             </button>
-            <span
-                id={count().key}
-            >
-                {count().value}
+            <span>
+                {count}
             </span>
             <button
                 onClick={() => setCount(count().value + 1 )}

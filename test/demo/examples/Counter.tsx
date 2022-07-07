@@ -5,12 +5,12 @@ const Counter = (): HTMLElement => {
 
   createEffect(() => {
     console.log("Count: ", count().value);
-  }, [count().key]);
+  }, [count]);
 
   return (
     <>
       <button onClick={() => setCount((count().value as number) - 1)}>-</button>
-      <span id={count().key}>{count().value}</span>
+      <span>{count}</span>
       <button onClick={() => setCount((count().value as number) + 1)}>+</button>
     </>
   );
