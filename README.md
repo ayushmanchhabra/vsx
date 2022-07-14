@@ -1,6 +1,6 @@
 # vsx
 
-Write reactive vanilla JavaScript in JSX.
+Write vanilla JavaScript in JSX.
 
 ## Installation
 
