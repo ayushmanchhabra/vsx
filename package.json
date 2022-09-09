@@ -43,7 +43,7 @@
     "jest-environment-jsdom": "28.1.1",
     "jsdom": "19.0.0",
     "prettier": "2.7.1",
-    "serve": "13.0.2",
+    "serve": "13.0.4",
     "ts-jest": "28.0.5",
     "tsup": "6.1.2",
     "typescript": "4.7.3"
