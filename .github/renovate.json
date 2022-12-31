@@ -1,4 +1,4 @@
 {
   "extends": ["config:base", ":disableDependencyDashboard"],
-  "automerge": false
+  "automerge": true
 }
