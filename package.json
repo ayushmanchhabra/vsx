@@ -30,6 +30,10 @@
     "JSX",
     "JavaScript"
   ],
+  "engines": {
+    "node": ">=18.15.0",
+    "npm": ">=9.6.2"
+  },
   "dependencies": {
     "uniqid": "5.4.0"
   },

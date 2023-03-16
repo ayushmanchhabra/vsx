@@ -1,7 +1,5 @@
 # vsx
 
-> The repository has [moved](https://github.com/tharatau/idea-maze/tree/main/vsx).
-
 Write vanilla JavaScript in JSX.
 
 ## Installation
