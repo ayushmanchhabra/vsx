@@ -1,52 +1,56 @@
 import uniqid from "uniqid";
 
-import State from "../../schema/State";
-
-const createState = (
-  initialValue: State["value"],
+function createState<T>(
+  initialValue: T
 ): [
-  () => State,
-  //eslint-disable-next-line
-  (updatedValue: State["value"]) => void,
-] => {
+    () => {
+      key: string;
+      value: T;
+    },
+    (updatedValue: T) => void,
+  ] {
   const type = typeof initialValue;
 
   const id: string = uniqid();
 
-  const get = (): State => {
+  const get = (): {
+    key: string;
+    value: T;
+  } => {
     if (document.getElementById(id) === null) {
       return {
         key: id,
         value: initialValue,
       };
     } else {
-      let typedValue: State["value"] = document.getElementById(id)?.innerText;
+      const typedValue: string | undefined = document.getElementById(id)?.innerText;
+      let returnedValue: any = undefined;
       switch (type) {
         case "boolean":
-          typedValue = typedValue === "true";
+          returnedValue = typedValue === "true";
           break;
         case "number":
-          typedValue = Number(typedValue);
+          returnedValue = Number(typedValue);
           break;
         case "object":
           if (typedValue === "null") {
-            typedValue = null;
+            returnedValue = null;
           }
           break;
         case "string":
-          typedValue = String(typedValue);
+          returnedValue = String(typedValue);
           break;
         default:
           break;
       }
       return {
         key: id,
-        value: typedValue,
+        value: returnedValue,
       };
     }
   };
 
-  const set = (updatedValue: State["value"]): void => {
+  const set = (updatedValue: T): void => {
     const element = document.getElementById(id);
     if (element === null) {
       throw new Error(`Element with id ${id} does not exist.`);
