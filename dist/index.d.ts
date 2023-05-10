@@ -1,4 +1,4 @@
-declare type State = {
+type State = {
     key: string;
     value?: null | boolean | string | number | (() => State) | Element | Element[];
 };

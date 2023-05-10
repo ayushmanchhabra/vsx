@@ -15,7 +15,14 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
 
 // node_modules/uniqid/index.js
 var require_uniqid = __commonJS({
@@ -64,60 +71,6 @@ var require_uniqid = __commonJS({
 
 // dist/index.js
 var import_uniqid = __toESM(require_uniqid(), 1);
-var g = (t, e, ...r) => {
-  if (typeof t != "string" && Array.isArray(t())) {
-    let o = new DocumentFragment();
-    return o.append(...r), o;
-  } else {
-    if (typeof t != "string" && !Array.isArray(t()))
-      return t();
-    if (typeof t == "string") {
-      let o = document.createElement(t);
-      return e !== null && Object.entries(e).forEach(([a, s]) => {
-        if (a.startsWith("on") && a.toLowerCase() in window && o.addEventListener(a.toLowerCase().substring(2), s), a === "style") {
-          let n = "";
-          for (let i in s)
-            n += `${i.replace(/([A-Z])/g, (l) => `-${l[0].toLowerCase()}`)}: ${s[i]};
-`;
-          o.setAttribute(a, n);
-        } else
-          o.setAttribute(a, s.toString());
-      }), r.forEach((a) => m(o, a)), o;
-    } else
-      return document.createElement("div");
-  }
-};
-var m = (t, e) => {
-  Array.isArray(e) ? e.forEach((r) => m(t, r)) : typeof e == "boolean" ? t.appendChild(document.createElement(e.toString())) : typeof e == "string" ? t.appendChild(document.createTextNode(e)) : typeof e == "number" ? t.appendChild(document.createTextNode(e.toString())) : typeof e == "function" ? (t.id = e().key, m(t, e().value)) : (e == null ? void 0 : e.nodeType) === 1 && t.appendChild(e);
-};
-var u = g;
-var y = (t, ...e) => e;
-var f = y;
-var L = { createElement: u, createFragment: f };
-
-// src/api/state/createEffect.ts
-var createEffect = (fn, deps) => {
-  window.onload = () => {
-    if (Array.isArray(deps) && deps.length === 0) {
-      fn();
-    } else {
-      for (const dep of deps) {
-        const target = document.getElementById(dep().key);
-        const config = { attributes: true, childList: true, subtree: true };
-        const callback = (mutations) => {
-          for (const mutation of mutations) {
-            fn();
-          }
-        };
-        const observer = new MutationObserver(callback);
-        observer.observe(target, config);
-      }
-    }
-  };
-};
-var createEffect_default = createEffect;
-
-// src/api/runtime/createElement.ts
 var createElement = (tag, props, ...children) => {
   if (typeof tag !== "string" && Array.isArray(tag())) {
     const fragment = new DocumentFragment();
@@ -136,7 +89,10 @@ var createElement = (tag, props, ...children) => {
         if (key === "style") {
           let style = "";
           for (const obj in value) {
-            style += `${obj.replace(/([A-Z])/g, (g2) => `-${g2[0].toLowerCase()}`)}: ${value[obj]};
+            style += `${obj.replace(
+              /([A-Z])/g,
+              (g) => `-${g[0].toLowerCase()}`
+            )}: ${value[obj]};
 `;
           }
           element.setAttribute(key, style);
@@ -169,12 +125,98 @@ var appendChild = (parent, child) => {
   }
 };
 var createElement_default = createElement;
-
-// src/api/runtime/createFragment.ts
 var createFragment = (_, ...children) => {
   return children;
 };
 var createFragment_default = createFragment;
+var src_default = {
+  createElement: createElement_default,
+  createFragment: createFragment_default
+};
+
+// src/api/state/createEffect.ts
+var createEffect = (fn, deps) => {
+  window.onload = () => {
+    if (Array.isArray(deps) && deps.length === 0) {
+      fn();
+    } else {
+      for (const dep of deps) {
+        const target = document.getElementById(dep().key);
+        const config = { attributes: true, childList: true, subtree: true };
+        const callback = (mutations) => {
+          for (const mutation of mutations) {
+            fn();
+          }
+        };
+        const observer = new MutationObserver(callback);
+        observer.observe(target, config);
+      }
+    }
+  };
+};
+var createEffect_default = createEffect;
+
+// src/api/runtime/createElement.ts
+var createElement2 = (tag, props, ...children) => {
+  if (typeof tag !== "string" && Array.isArray(tag())) {
+    const fragment = new DocumentFragment();
+    fragment.append(...children);
+    return fragment;
+  } else if (typeof tag !== "string" && !Array.isArray(tag())) {
+    const fn = tag;
+    return fn();
+  } else if (typeof tag === "string") {
+    const element = document.createElement(tag);
+    if (props !== null) {
+      Object.entries(props).forEach(([key, value]) => {
+        if (key.startsWith("on") && key.toLowerCase() in window) {
+          element.addEventListener(key.toLowerCase().substring(2), value);
+        }
+        if (key === "style") {
+          let style = "";
+          for (const obj in value) {
+            style += `${obj.replace(
+              /([A-Z])/g,
+              (g) => `-${g[0].toLowerCase()}`
+            )}: ${value[obj]};
+`;
+          }
+          element.setAttribute(key, style);
+        } else {
+          element.setAttribute(key, value.toString());
+        }
+      });
+    }
+    children.forEach((child) => appendChild2(element, child));
+    return element;
+  } else {
+    const element = document.createElement("div");
+    return element;
+  }
+};
+var appendChild2 = (parent, child) => {
+  if (Array.isArray(child)) {
+    child.forEach((nestedChild) => appendChild2(parent, nestedChild));
+  } else if (typeof child === "boolean") {
+    parent.appendChild(document.createElement(child.toString()));
+  } else if (typeof child === "string") {
+    parent.appendChild(document.createTextNode(child));
+  } else if (typeof child === "number") {
+    parent.appendChild(document.createTextNode(child.toString()));
+  } else if (typeof child === "function") {
+    parent.id = child().key;
+    appendChild2(parent, child().value);
+  } else if (child?.nodeType === 1) {
+    parent.appendChild(child);
+  }
+};
+var createElement_default2 = createElement2;
+
+// src/api/runtime/createFragment.ts
+var createFragment2 = (_, ...children) => {
+  return children;
+};
+var createFragment_default2 = createFragment2;
 
 // src/api/state/createState.ts
 var import_uniqid2 = __toESM(require_uniqid(), 1);
@@ -226,9 +268,9 @@ var createState = (initialValue) => {
 var createState_default = createState;
 
 // src/index.ts
-var src_default = {
-  createElement: createElement_default,
-  createFragment: createFragment_default
+var src_default2 = {
+  createElement: createElement_default2,
+  createFragment: createFragment_default2
 };
 
 // test/demo/examples/Counter.tsx
@@ -237,13 +279,9 @@ var Counter = () => {
   createEffect_default(() => {
     console.log("Count: ", count().value);
   }, [count]);
-  return /* @__PURE__ */ src_default.createElement(src_default.createFragment, null, /* @__PURE__ */ src_default.createElement("button", {
-    onClick: () => setCount(count().value - 1)
-  }, "-"), /* @__PURE__ */ src_default.createElement("span", null, count), /* @__PURE__ */ src_default.createElement("button", {
-    onClick: () => setCount(count().value + 1)
-  }, "+"));
+  return /* @__PURE__ */ src_default2.createElement(src_default2.createFragment, null, /* @__PURE__ */ src_default2.createElement("button", { onClick: () => setCount(count().value - 1) }, "-"), /* @__PURE__ */ src_default2.createElement("span", null, count), /* @__PURE__ */ src_default2.createElement("button", { onClick: () => setCount(count().value + 1) }, "+"));
 };
 var Counter_default = Counter;
 
 // test/demo/index.tsx
-document.getElementById("root")?.appendChild(/* @__PURE__ */ L.createElement(Counter_default, null));
+document.getElementById("root")?.appendChild(/* @__PURE__ */ src_default.createElement(Counter_default, null));

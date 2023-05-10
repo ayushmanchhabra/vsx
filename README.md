@@ -41,7 +41,7 @@ Using jsDelivr CDN:
 With TypeScript, add these options in your `tsconfig`
 
 ```json
-    "jsx":"preserve",
+    "jsx":"react",
     "jsxFactory": "VSX.createElement",
     "jsxFragmentFactory": "VSX.createFragment",
 ```
