@@ -55,7 +55,7 @@
     "serve": "14.2.0",
     "ts-jest": "29.1.0",
     "tsup": "7.1.0",
-    "typescript": "5.1.5"
+    "typescript": "5.1.6"
   },
   "jest": {
     "preset": "ts-jest",
