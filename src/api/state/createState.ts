@@ -1,14 +1,12 @@
 import uniqid from "uniqid";
 
-function createState<T>(
-  initialValue: T
-): [
-    () => {
-      key: string;
-      value: T;
-    },
-    (updatedValue: T) => void,
-  ] {
+function createState<T>(initialValue: T): [
+  () => {
+    key: string;
+    value: T;
+  },
+  (updatedValue: T) => void,
+] {
   const type = typeof initialValue;
 
   const id: string = uniqid();
@@ -23,7 +21,8 @@ function createState<T>(
         value: initialValue,
       };
     } else {
-      const typedValue: string | undefined = document.getElementById(id)?.innerText;
+      const typedValue: string | undefined =
+        document.getElementById(id)?.innerText;
       let returnedValue: any = undefined;
       switch (type) {
         case "boolean":
@@ -60,6 +59,6 @@ function createState<T>(
   };
 
   return [get, set];
-};
+}
 
 export default createState;

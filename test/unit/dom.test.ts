@@ -14,7 +14,11 @@ test("for single DOM element with text", () => {
 });
 
 test("for nested DOM elements", () => {
-  const actual = VSX.createElement("div", null, VSX.createElement("span", null));
+  const actual = VSX.createElement(
+    "div",
+    null,
+    VSX.createElement("span", null),
+  );
   const expected = document.createElement("div");
   expected.innerHTML = "<span></span>";
   expect(actual).toStrictEqual(expected);
@@ -62,7 +66,12 @@ test("for nested JSX elements with text", () => {
   // Mimick a custom component foo written as <Foo/> in jsx
   const Foo = () => VSX.createElement("div", null, "Child");
   // Mimick passing Foo as child of a div like so: <div><Foo/></div>
-  const actual = VSX.createElement("div", null, "Parent", VSX.createElement(Foo, null));
+  const actual = VSX.createElement(
+    "div",
+    null,
+    "Parent",
+    VSX.createElement(Foo, null),
+  );
   const expected = document.createElement("div");
   expected.innerHTML = "Parent<div>Child</div>";
   expect(actual).toStrictEqual(expected);
