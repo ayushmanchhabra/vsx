@@ -1,18 +1,17 @@
 {
   "name": "vsx",
-  "version": "0.6.0",
-  "description": "Write reactive vanilla JavaScript in JSX.",
-  "author": "Ayushman Chhabra <ayushmxn@outlook.com>",
+  "version": "0.7.0",
+  "description": "Write vanilla JavaScript in JSX.",
+  "author": {
+    "name": "Ayush C.",
+    "url": "https://ayushmanchhabra.com"
+  },
   "license": "MIT",
   "type": "module",
-  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.js"
   },
   "files": [
     "dist",
@@ -36,8 +35,8 @@
     "JavaScript"
   ],
   "engines": {
-    "node": ">=18.15.0",
-    "npm": ">=9.6.2"
+    "node": ">=v18.16.1",
+    "npm": ">=9.8.0"
   },
   "dependencies": {
     "uniqid": "5.4.0"
