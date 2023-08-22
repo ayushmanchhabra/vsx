@@ -42,7 +42,7 @@
     "uniqid": "5.4.0"
   },
   "devDependencies": {
-    "@types/jest": "29.5.3",
+    "@types/jest": "29.5.4",
     "@types/node": "18.17.7",
     "@typescript-eslint/parser": "6.4.1",
     "esbuild": "0.19.2",
