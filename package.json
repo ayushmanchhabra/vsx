@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@types/jest": "29.5.4",
-    "@types/node": "18.17.14",
+    "@types/node": "18.17.15",
     "@typescript-eslint/parser": "6.6.0",
     "esbuild": "0.19.2",
     "eslint": "8.48.0",
