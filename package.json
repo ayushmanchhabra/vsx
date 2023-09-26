@@ -27,7 +27,7 @@
     "format": "prettier --write ./src ./test",
     "lint": "eslint ./src/**/*.ts",
     "build": "tsup src/index.ts --minify --format cjs,esm --dts --clean",
-    "demo": "pnpm build && esbuild ./test/demo/index.tsx --bundle --platform=node --outfile=./test/demo/index.js && serve ./test/demo",
+    "demo": "npm run build && esbuild ./test/demo/index.tsx --bundle --platform=node --outdir=./test/demo --watch --servedir=./test/demo",
     "test": "jest"
   },
   "keywords": [
