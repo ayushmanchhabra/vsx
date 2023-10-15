@@ -1,4 +1,4 @@
-import uniqid from "uniqid";
+import { v4 as uuid } from 'uuid';
 
 function createState<T>(initialValue: T): [
   () => {
@@ -9,7 +9,7 @@ function createState<T>(initialValue: T): [
 ] {
   const type = typeof initialValue;
 
-  const id: string = uniqid();
+  const id: string = uuid();
 
   const get = (): {
     key: string;
