@@ -27,8 +27,8 @@
     "fmt": "prettier --write ./src ./test",
     "lnt": "eslint --config=.github/eslint.config.cjs ./src/**/*.ts",
     "bld": "tsup src/index.ts --minify --format cjs,esm --dts --clean",
-    "demo": "npm run build && esbuild ./test/demo/index.tsx --bundle --platform=node --outdir=./test/demo --watch --servedir=./test/demo",
-    "test": "jest"
+    "demo": "npm run bld && esbuild ./test/demo/index.tsx --bundle --platform=node --outdir=./test/demo --watch --servedir=./test/demo",
+    "test": "vitest"
   },
   "keywords": [
     "JSX",
@@ -36,32 +36,23 @@
   ],
   "engines": {
     "node": ">= 18.18.0",
-    "npm": ">= 9.8.0"
+    "npm": ">= 10.2.0"
   },
   "dependencies": {
     "uniqid": "^5.4.0"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.5",
     "@types/node": "^18.17.19",
     "@typescript-eslint/eslint-plugin": "^6.7.5",
     "@typescript-eslint/parser": "^6.7.2",
     "esbuild": "~0.19.3",
     "eslint": "^8.50.0",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
     "jsdom": "^22.1.0",
     "prettier": "^3.0.3",
     "serve": "^14.2.1",
     "ts-jest": "^29.1.1",
     "tsup": "^7.2.0",
-    "typescript": "^5.2.2"
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "transform": {
-      ".+\\.ts?$": "ts-jest"
-    },
-    "testEnvironment": "jsdom"
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6"
   }
 }
