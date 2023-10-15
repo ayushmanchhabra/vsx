@@ -4,5 +4,6 @@
     "config:base",
     ":disableDependencyDashboard"
   ],
-  "automerge": true
+  "automerge": true,
+  "rangeStrategy": "bump"
 }
