@@ -18,17 +18,17 @@
     "LICENSE",
     "src"
   ],
-  "homepage": "https://github.com/ayushmxn/vsx",
+  "homepage": "https://github.com/ayushmanchhabra/vsx",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ayushmxn/vsx.git"
+    "url": "https://github.com/ayushmanchhabra/vsx.git"
   },
   "scripts": {
-    "format": "prettier --write ./src ./test",
-    "lint": "eslint ./src/**/*.ts",
-    "build": "tsup src/index.ts --minify --format cjs,esm --dts --clean",
-    "demo": "npm run build && esbuild ./test/demo/index.tsx --bundle --platform=node --outdir=./test/demo --watch --servedir=./test/demo",
-    "test": "jest"
+    "fmt": "prettier --write ./src ./test",
+    "lnt": "eslint --config=.github/eslint.config.cjs ./src/**/*.ts",
+    "bld": "tsup src/index.ts --minify --format cjs,esm --dts --clean",
+    "test": "vitest",
+    "demo": "npm run bld && esbuild ./test/demo/index.tsx --bundle --platform=node --outdir=./test/demo --watch --servedir=./test/demo"
   },
   "keywords": [
     "JSX",
@@ -36,62 +36,23 @@
   ],
   "engines": {
     "node": ">= 18.18.0",
-    "npm": ">= 9.8.0"
+    "npm": ">= 10.2.0"
   },
   "dependencies": {
-    "uniqid": "^5.4.0"
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.5",
-    "@types/node": "^18.17.19",
+    "@types/node": "^18.18.5",
+    "@types/uuid": "^9.0.5",
+    "@typescript-eslint/eslint-plugin": "^6.7.5",
     "@typescript-eslint/parser": "^6.7.2",
     "esbuild": "~0.19.3",
     "eslint": "^8.50.0",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
     "jsdom": "^22.1.0",
     "prettier": "^3.0.3",
     "serve": "^14.2.1",
-    "ts-jest": "^29.1.1",
     "tsup": "^7.2.0",
-    "typescript": "^5.2.2"
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "transform": {
-      ".+\\.ts?$": "ts-jest"
-    },
-    "testEnvironment": "jsdom"
-  },
-  "prettier": {
-    "printWidth": 80,
-    "tabWidth": 2,
-    "useTabs": false,
-    "semi": true,
-    "singleQuote": false,
-    "quoteProps": "consistent",
-    "trailingComma": "all",
-    "bracketSpacing": true,
-    "bracketSameLine": false,
-    "arrowParens": "always",
-    "proseWrap": "preserve",
-    "htmlWhitespaceSensitivity": "strict",
-    "endOfLine": "lf",
-    "singleAttributePerLine": true
-  },
-  "eslintConfig": {
-    "extends": "eslint:recommended",
-    "parserOptions": {
-      "ecmaVersion": 2023,
-      "sourceType": "module"
-    },
-    "env": {
-      "es6": true,
-      "browser": true
-    },
-    "parser": "@typescript-eslint/parser",
-    "rules": {
-      "no-unused-vars": "warn"
-    }
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6"
   }
 }
