@@ -27,8 +27,8 @@
     "fmt": "prettier --write ./src ./test",
     "lnt": "eslint --config=.github/eslint.config.cjs ./src/**/*.ts",
     "bld": "tsup src/index.ts --minify --format cjs,esm --dts --clean",
-    "demo": "npm run bld && esbuild ./test/demo/index.tsx --bundle --platform=node --outdir=./test/demo --watch --servedir=./test/demo",
-    "test": "vitest"
+    "test": "vitest",
+    "demo": "npm run bld && esbuild ./test/demo/index.tsx --bundle --platform=node --outdir=./test/demo --watch --servedir=./test/demo"
   },
   "keywords": [
     "JSX",
