@@ -35,7 +35,7 @@
     "JavaScript"
   ],
   "engines": {
-    "node": ">= 18.18.0",
+    "node": ">= 18.18.2",
     "npm": ">= 10.2.0"
   },
   "dependencies": {
