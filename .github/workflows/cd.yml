@@ -15,6 +15,6 @@ jobs:
 
       - run: npm ci
       - run: npm run bld
-      - uses: JS-DevTools/npm-publish@v2.2.2
+      - uses: JS-DevTools/npm-publish@v3.0.0
         with:
           token: ${{ secrets.NPM_TOKEN }}
