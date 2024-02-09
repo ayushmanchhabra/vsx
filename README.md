@@ -2,6 +2,13 @@
 
 Write vanilla JavaScript in JSX.
 
+## Design
+
+- If DOM is computer memory, then element is a variable, element with id is an initialised variable. Once the app is built, element cannot be updated (static view) while element with id can be updated (dynamic variable).
+- Component abstracts away document.createElement function calls.
+- State is an initialised variable.
+- Effect uses MutationObserver API to track changes.
+
 ## Installation
 
 Using npm:
@@ -79,40 +86,11 @@ const Counter = () => {
 
 ```
 
-## API Reference
-
-`createElement(tag: string | (() => Node), props: { [key: string]: any } | null, ...children: Array<string | Node>): Node`
-
-It is applied to every HTML and JSX element via the runtime of your choice.
-
-`createFragment(props: { [key: string]: any } | null, ...children: Array<string | Node>): Array<string | Node>`
-
-It is applied to every JSX fragment via the runtime of your choice.
-
-`createState(initialValue: Data): [get(): State, set(updatedValue: Data): void]`
-
-A hook function to manage DOM elements' state.
-
-`createEffect(fn: () => void, deps: string[]): void`
-
-A hook function to manage side effects.
-
-`Data: null | number | string | boolean | Data[]`
-
-It represents a state variable's value with it's type information.
-
-`State: { key: string: typedValue?: Data}`
-
-Type definition of a state variable.
-
 ## Contributing
-
-- Open an issue before submitting a pull request.
-- PRs should have short descriptive titles. For example:
-    - fix(docs): fix typo in `createElement` description
-    - feat(state): add support for arrays
-- Ensure PRs reference a related issue
-- Ensure there are tests that cover your changes
+- Conventional commits are enforced.
+- Pull requests are squashed and merged onto `main` branch.
+- Lint your code before commiting your change.
+- Add tests whenever possible.
 
 ## Inspiration/References
 
