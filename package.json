@@ -48,5 +48,8 @@
     "typescript": "^5.3.3",
     "vitest": "^1.2.2"
   },
-  "packageManager": "npm@10.4.0"
+  "packageManager": "npm@10.4.0",
+  "workspaces": [
+    "./templates/*"
+  ]
 }

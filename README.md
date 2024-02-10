@@ -111,7 +111,7 @@ To open a bug report or to add a feature request, open a PR and edit `Roadmap` i
 
 - [ ] Add end to end testing
 - [ ] Explore tagged templates
-- [ ] Add moretemplates/examples
+- [ ] Add more templates/examples
 - [ ] Move releases information to `CHANGELOG.md`
 
 ## License
