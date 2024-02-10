@@ -22,7 +22,7 @@ If you think of [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_
 const [count, setCount] = createState(0);
 ```
 
-Since there is no virtual DOM or proxy magic, `number` needs to be inserted in the markup so that a unique `id` can be generated which is referenced by `setCount` function.
+Since there is no virtual DOM or proxy magic, `count` needs to be inserted in the markup so that a unique `id` can be generated which is referenced by `setCount` function.
 
 ```javascript
 <>
