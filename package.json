@@ -24,9 +24,8 @@
     "url": "https://github.com/ayushmanchhabra/vsx.git"
   },
   "scripts": {
-    "vite": "vite",
-    "lnt": "eslint --config=.github/eslint.config.cjs ./src/**/*.ts",
-    "bld": "tsup src/index.ts --minify --format cjs,esm --dts --clean",
+    "lint": "eslint --config=.github/eslint.config.cjs ./src/**/*.ts",
+    "build": "tsup src/index.ts --minify --format cjs,esm --dts --clean",
     "test": "vitest"
   },
   "keywords": [

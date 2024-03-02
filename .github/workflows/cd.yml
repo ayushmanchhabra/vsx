@@ -11,10 +11,10 @@ jobs:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
       - uses: actions/setup-node@v4.0.2
         with:
-          node-version: 18
+          node-version: 20
 
       - run: npm ci
-      - run: npm run bld
+      - run: npm run build
       - uses: JS-DevTools/npm-publish@v3.0.1
         with:
           token: ${{ secrets.NPM_TOKEN }}
