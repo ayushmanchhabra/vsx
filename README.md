@@ -12,7 +12,8 @@ Write vanilla JavaScript in JSX.
     "jsxFactory": "VSX.createElement",
     "jsxFragmentFactory": "VSX.createFragment",
 ```
-1. The [demo app](https://github.com/ayushmanchhabra/vsx/tree/main/test/demo) uses `esbuild` to transpile from VSX to JavaScript. More examples coming soon!
+
+
 
 ## Design
 
@@ -111,8 +112,8 @@ To open a bug report or to add a feature request, open a PR and edit `Roadmap` i
 
 - [ ] Add end to end testing
 - [ ] Explore tagged templates
-- [ ] Add moretemplates/examples
 - [ ] Move releases information to `CHANGELOG.md`
+- [ ] Might have to add custom tsconfigs for different bundlers
 
 ## License
 

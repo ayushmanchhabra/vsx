@@ -1,0 +1,10 @@
+{
+    "name": "vsx-esbuild-template",
+    "private": true,
+    "devDependencies": {
+        "vsx": "^0.7.0"
+    },
+    "scripts": {
+        "start": "esbuild ./main.tsx --bundle --platform=node --outdir=. --watch --servedir=."
+    }
+}

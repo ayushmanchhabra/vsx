@@ -3,7 +3,7 @@
   "version": "0.7.0",
   "description": "Write vanilla JavaScript in JSX.",
   "author": {
-    "name": "Ayush C.",
+    "name": "Ayushman Chhabra",
     "url": "https://ayushmanchhabra.com"
   },
   "license": "MIT",
@@ -24,10 +24,9 @@
     "url": "https://github.com/ayushmanchhabra/vsx.git"
   },
   "scripts": {
-    "lnt": "eslint --config=.github/eslint.config.cjs ./src/**/*.ts",
-    "bld": "tsup src/index.ts --minify --format cjs,esm --dts --clean",
-    "test": "vitest",
-    "demo": "npm run bld && esbuild ./test/demo/index.tsx --bundle --platform=node --outdir=./test/demo --watch --servedir=./test/demo"
+    "lint": "eslint --config=.github/eslint.config.cjs ./src/**/*.ts",
+    "build": "tsup src/index.ts --minify --format cjs,esm --dts --clean",
+    "test": "vitest"
   },
   "keywords": [
     "JSX",
@@ -46,7 +45,14 @@
     "jsdom": "^24.0.0",
     "tsup": "^8.0.2",
     "typescript": "^5.3.3",
+    "vite": "^5.1.3",
     "vitest": "^1.3.1"
   },
-  "packageManager": "npm@10.5.0"
+  "engines": {
+    "node": "20.11.1"
+  },
+  "packageManager": "npm@10.5.0",
+  "workspaces": [
+    "templates/*"
+  ]
 }
