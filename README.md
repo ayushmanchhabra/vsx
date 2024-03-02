@@ -112,7 +112,6 @@ To open a bug report or to add a feature request, open a PR and edit `Roadmap` i
 
 - [ ] Add end to end testing
 - [ ] Explore tagged templates
-- [ ] Add moretemplates/examples
 - [ ] Move releases information to `CHANGELOG.md`
 - [ ] Might have to add custom tsconfigs for different bundlers
 
