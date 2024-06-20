@@ -2,7 +2,7 @@
     "name": "vsx-vite-template",
     "private": true,
     "devDependencies": {
-        "typescript": "^5.4.5",
+        "typescript": "^5.5.2",
         "vite": "^5.3.1",
         "vsx": "^0.7.0"
     },
