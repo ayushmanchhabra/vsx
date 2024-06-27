@@ -7,6 +7,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
@@ -18,20 +21,6 @@ jobs:
         run: npm run lint
       - name: Test codebase
         run: npm run test
-  cov:
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-      pull-requests: write
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4.1.7
-      - name: Setup Volta
-        uses: volta-cli/action@v4.1.1
-      - name: Install dependencies
-        run: npm ci
-      - name: Enable Coverage
-        run: npm run test:cov
-      - name: Report Coverage
+      - name: Report coverage
         if: always()
         uses:  davelosert/vitest-coverage-report-action@v2.4.0

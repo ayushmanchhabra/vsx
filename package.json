@@ -26,8 +26,7 @@
   "scripts": {
     "lint": "eslint --config=.github/eslint.config.cjs ./src/**/*.ts",
     "build": "tsup src/index.ts --minify --format cjs,esm --dts --clean",
-    "test": "vitest",
-    "test:cov": "vitest --coverage.enabled true"
+    "test": "vitest run --coverage.enabled true"
   },
   "keywords": [
     "JSX",
