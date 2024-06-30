@@ -1,6 +1,6 @@
 {
   "name": "vsx",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Write vanilla JavaScript in JSX.",
   "author": {
     "name": "Ayushman Chhabra",
