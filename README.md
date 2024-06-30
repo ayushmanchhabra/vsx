@@ -9,8 +9,8 @@ Write vanilla JavaScript in JSX.
 
 ```json
     "jsx":"react",
-    "jsxFactory": "VSX.createElement",
-    "jsxFragmentFactory": "VSX.createFragment",
+    "jsxFactory": "React.createElement",
+    "jsxFragmentFactory": "React.createFragment",
 ```
 
 
@@ -40,7 +40,7 @@ An effect tracks changes to certain elements via the [MutationObserver API](http
 Here's the complete example of a counter:
 
 ```javascript
-import VSX, { createEffect, createState } from "vsx";
+import React, { createEffect, createState } from "vsx";
 
 const Counter = () => {
     const [count, setCount] = createState(0);
@@ -71,6 +71,7 @@ const Counter = () => {
 ```
 
 ## Contributing
+
 - Conventional commits are enforced.
 - Pull requests are squashed and merged onto `main` branch.
 - Lint your code before commiting your change.

@@ -5,9 +5,8 @@ function App (): HTMLElement {
     const router = createRouter([
         {
             path: '/',
-            element: ''
+            element: '<span>main</span>'
         },
-
         {
             path: '/ping',
             element: '<span>pong</span>'
@@ -20,7 +19,7 @@ function App (): HTMLElement {
                 Hello, World! Is anyone out there?
                 <br /><br />
                 <button onClick={() => {
-                    router('/ping');
+                    router('/');
                 }}>/ping</button>
             </div>
         </div>
