@@ -7,8 +7,8 @@
             "ES2022"
         ],
         "jsx": "react",
-        "jsxFactory": "VSX.createElement",
-        "jsxFragmentFactory": "VSX.createFragment",
+        "jsxFactory": "React.createElement",
+        "jsxFragmentFactory": "React.createFragment",
         "moduleResolution": "node",
         "isolatedModules": true,
         "strictNullChecks": true,
