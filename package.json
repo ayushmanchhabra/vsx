@@ -33,7 +33,7 @@
     "JavaScript"
   ],
   "dependencies": {
-    "uuid": "^10.0.0"
+    "uuid": "^11.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.17.1",
