@@ -36,7 +36,7 @@
     "uuid": "^11.0.2"
   },
   "devDependencies": {
-    "@types/node": "^22.8.2",
+    "@types/node": "^22.8.4",
     "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^8.12.2",
     "@typescript-eslint/parser": "^8.12.2",
@@ -50,7 +50,7 @@
     "vitest": "^2.1.4"
   },
   "volta": {
-    "node": "20.18.0",
+    "node": "22.11.0",
     "npm": "10.9.0"
   },
   "workspaces": [
