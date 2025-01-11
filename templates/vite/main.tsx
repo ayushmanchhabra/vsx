@@ -4,9 +4,7 @@ function App(): HTMLElement {
 
     return (
         <div>
-            <div>
-                Hello, World! Is anyone out there?
-            </div>
+            Hello, World! Is anyone out there?
         </div>
     );
 }
