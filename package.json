@@ -33,7 +33,7 @@
     "JavaScript"
   ],
   "dependencies": {
-    "uuid": "^11.0.5"
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.20.0",
