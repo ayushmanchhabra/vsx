@@ -3,7 +3,7 @@
     "private": true,
     "devDependencies": {
         "typescript": "^5.8.3",
-        "vite": "^6.2.5",
+        "vite": "^6.2.6",
         "vsx": "^0.8.0"
     },
     "scripts": {
