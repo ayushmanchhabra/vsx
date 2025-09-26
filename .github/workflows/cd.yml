@@ -17,6 +17,6 @@ jobs:
       - name: Build output
         run: npm run build
       - name: Publish to npm
-        uses: JS-DevTools/npm-publish@v4.1.0
+        uses: JS-DevTools/npm-publish@v4.1.1
         with:
           token: ${{ secrets.NPM_TOKEN }}
