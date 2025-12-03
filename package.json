@@ -39,7 +39,7 @@
     "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.1",
     "@types/uuid": "^11.0.0",
-    "@vitest/coverage-v8": "^4.0.14",
+    "@vitest/coverage-v8": "^4.0.15",
     "esbuild": "~0.27.0",
     "eslint": "^9.39.1",
     "globals": "^16.5.0",
@@ -48,7 +48,7 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.48.1",
     "vite": "^7.2.6",
-    "vitest": "^4.0.14"
+    "vitest": "^4.0.15"
   },
   "volta": {
     "node": "24.11.1",
