@@ -13,8 +13,6 @@ Write vanilla JavaScript in JSX.
     "jsxFragmentFactory": "VSX.createFragment",
 ```
 
-
-
 ## Design
 
 If you think of [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) as computer memory, then an [element](https://developer.mozilla.org/en-US/docs/Web/API/element) is a variable. To update a variable (element), you access it via a pointer ([id](https://developer.mozilla.org/en-US/docs/Web/API/Element/id) property). This is called [state](https://legacy.reactjs.org/docs/react-component.html#state). State refers to an element with a unique `id`. Elements without `id` are regular XML markup.
@@ -110,6 +108,7 @@ To open a bug report or to add a feature request, open a PR and edit `Roadmap` i
 
 ### Chores
 
+- [ ] Move to new JSX runtime
 - [ ] Add end to end testing
 - [ ] Explore tagged templates
 - [ ] Move releases information to `CHANGELOG.md`
