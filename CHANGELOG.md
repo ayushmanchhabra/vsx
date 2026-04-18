@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.8.3](https://github.com/ayushmanchhabra/vsx/compare/v0.8.2...v0.8.3) (2026-04-18)
+
+
+### Chores
+
+* **deps:** bump flatted from 3.3.2 to 3.4.2 ([#1021](https://github.com/ayushmanchhabra/vsx/issues/1021)) ([cb3a87e](https://github.com/ayushmanchhabra/vsx/commit/cb3a87e84bb1232b8ba5fd5cfff4f2d4f63f3f57))
+* **deps:** bump minimatch from 9.0.4 to 9.0.9 ([#1023](https://github.com/ayushmanchhabra/vsx/issues/1023)) ([6f253a2](https://github.com/ayushmanchhabra/vsx/commit/6f253a211332b2bd13f65403f3010efdec9918f7))
+* **deps:** bump picomatch from 4.0.3 to 4.0.4 ([#1020](https://github.com/ayushmanchhabra/vsx/issues/1020)) ([a363677](https://github.com/ayushmanchhabra/vsx/commit/a36367726977df931a2fef04a673f2f9663017e4))
+* **deps:** bump rollup from 4.46.2 to 4.60.1 ([#1025](https://github.com/ayushmanchhabra/vsx/issues/1025)) ([bf7fcad](https://github.com/ayushmanchhabra/vsx/commit/bf7fcad0a6729f5d46918bef22120e19307db8a1))
+* **deps:** bump the gha group across 1 directory with 5 updates ([#1024](https://github.com/ayushmanchhabra/vsx/issues/1024)) ([b31a5cc](https://github.com/ayushmanchhabra/vsx/commit/b31a5cc9d6d5046887d6d2d1b62cf5d1385f5887))
+* **deps:** bump the npm group across 1 directory with 11 updates ([#1022](https://github.com/ayushmanchhabra/vsx/issues/1022)) ([9e6e59e](https://github.com/ayushmanchhabra/vsx/commit/9e6e59e9f6c6ecf5fb2a6193765bbae92cb242b0))
+* **docs:** add new JSX runtime to roadmap ([9bc7c34](https://github.com/ayushmanchhabra/vsx/commit/9bc7c346694901573a4de6fe1460be8f2ea51d5f))
+
 ## [0.8.2](https://github.com/ayushmanchhabra/vsx/compare/v0.8.1...v0.8.2) (2025-12-15)
 
 
